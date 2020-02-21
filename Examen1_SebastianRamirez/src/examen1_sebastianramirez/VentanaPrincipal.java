@@ -74,7 +74,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Examen_Tema = new javax.swing.JTextField();
         Examen_Puntaje = new javax.swing.JTextField();
         Examen_Clase = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Button_Crear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 1000));
@@ -298,17 +298,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1)
-                                .addGap(288, 288, 288))
+                                .addComponent(jTextField1))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(875, 875, 875))))
             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -329,11 +328,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel13))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -352,7 +351,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel23.setText("Puntaje");
 
-        jButton2.setText("jButton2");
+        Button_Crear.setText("Crear");
+        Button_Crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_CrearMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -361,7 +365,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel9Layout.createSequentialGroup()
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -402,7 +406,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel23)
                     .addComponent(Examen_Puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(Button_Crear)
                 .addContainerGap(291, Short.MAX_VALUE))
         );
 
@@ -444,12 +448,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String Carrera = TextField_Carrera.getText();
         String nacimiento = TextField_Nacimiento.getText();
         String numero_de_cuenta = TextField_Cuenta.getText();
-        usuarios.add(TextField_Usuario.getText());
-        password.add(TextField_Contraseña.getText());
+        String usuario = TextField_Usuario.getText();
+        String contraseña = TextField_Contraseña.getText();
         if (RadioButton_Normal.isSelected()) {
             int conocimiento = Integer.parseInt(TextField_Conocimiento.getText());
             int nivel_de_aprendizaje = Integer.parseInt(TextField_aprendizaje.getText());
-            estudiantes.add(new EstudianteNormal(nombre, nacimiento, numero_de_cuenta, Carrera, edad,conocimiento, nivel_de_aprendizaje));
+            estudiantes.add(new EstudianteNormal(nombre, nacimiento, numero_de_cuenta, Carrera, usuario, contraseña, edad, conocimiento, nivel_de_aprendizaje));
             JOptionPane.showMessageDialog(this,"Usuario creado con exito");
            
         }else if (RadioButton_Tutor.isSelected()) {
@@ -457,7 +461,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             int ganancias = Integer.parseInt(TextField_Ganancias.getText());
             int nivel_de_enseñanza= Integer.parseInt(TextField_ensenanza.getText());
             int tutorias = Integer.parseInt(TextField_Tutorias.getText());
-            tutores.add(new Tutor(nombre, nacimiento, numero_de_cuenta, Carrera, edad, ganancias, tutorias));
+            tutores.add(new Tutor(nombre, nacimiento, numero_de_cuenta, Carrera, usuario, contraseña, edad, ganancias, tutorias));
             JOptionPane.showMessageDialog(this,"Usuario creado con exito");
         }
         TextField_Nombre.setText(" ");
@@ -473,7 +477,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         TextField_Tutorias.setText(" ");
         RadioButton_Normal.setSelected(false);
         RadioButton_Tutor.setSelected(false);
+        TextField_Usuario.setText(" ");
+        TextField_Contraseña.setText(" ");
     }//GEN-LAST:event_jButton1MouseClicked
+//.setEnabledAt(0,false);
+    private void Button_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_CrearMouseClicked
+        String clase = Examen_Clase.getText();
+        String conocimiento = Examen_Conocimiento.getText();
+        String tema = Examen_Tema.getText();
+        int puntaje = Integer.parseInt(Examen_Puntaje.getText());
+        examenes.add(new Examen(clase, conocimiento, tema, puntaje));
+        
+    }//GEN-LAST:event_Button_CrearMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -508,6 +523,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_Crear;
     private javax.swing.JTextField Examen_Clase;
     private javax.swing.JTextField Examen_Conocimiento;
     private javax.swing.JTextField Examen_Puntaje;
@@ -528,7 +544,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField TextField_aprendizaje;
     private javax.swing.JTextField TextField_ensenanza;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -561,8 +576,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-    ArrayList<String>usuarios = new ArrayList();
-    ArrayList<String>password = new ArrayList();
     ArrayList<EstudianteNormal>estudiantes = new ArrayList();
     ArrayList<Tutor>tutores = new ArrayList();
+    ArrayList<Examen>examenes = new ArrayList();
 }

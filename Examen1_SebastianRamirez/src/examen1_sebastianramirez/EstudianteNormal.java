@@ -3,22 +3,42 @@ package examen1_sebastianramirez;
 import java.util.ArrayList;
 
 public class EstudianteNormal extends Alumno {
-    private String nombre,lugar_de_nacimiento,numero_de_cuenta,carrera;
+    private String nombre,lugar_de_nacimiento,numero_de_cuenta,carrera,usuario,contraseña;
     private int edad,conocimiento_acumulado,nivel_de_aprendizaje;
     private ArrayList examenes = new ArrayList();
 
     public EstudianteNormal() {
     }
 
-    public EstudianteNormal(String nombre, String lugar_de_nacimiento, String numero_de_cuenta, String carrera, int edad, int conocimiento_acumulado, int nivel_de_aprendizaje) {
+    public EstudianteNormal(String nombre, String lugar_de_nacimiento, String numero_de_cuenta, String carrera, String usuario, String contraseña, int edad, int conocimiento_acumulado, int nivel_de_aprendizaje) {
         this.nombre = nombre;
         this.lugar_de_nacimiento = lugar_de_nacimiento;
         this.numero_de_cuenta = numero_de_cuenta;
         this.carrera = carrera;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
         this.edad = edad;
         this.conocimiento_acumulado = conocimiento_acumulado;
         this.nivel_de_aprendizaje = nivel_de_aprendizaje;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -75,5 +95,11 @@ public class EstudianteNormal extends Alumno {
     public void setNivel_de_aprendizaje(int nivel_de_aprendizaje) {
         this.nivel_de_aprendizaje = nivel_de_aprendizaje;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
     
 }

@@ -3,21 +3,39 @@ package examen1_sebastianramirez;
 import java.util.ArrayList;
 
 public class Tutor extends Alumno{
-    private String nombre,lugar_de_nacimiento,numero_de_cuenta,carrera;
+    private String nombre,lugar_de_nacimiento,numero_de_cuenta,carrera,usuario,contraseña;
     private ArrayList<String> clases = new ArrayList();
     private int edad,ganancias,tutorias_dadas;
 
     public Tutor() {
     }
 
-    public Tutor(String nombre, String lugar_de_nacimiento, String numero_de_cuenta, String carrera, int edad, int ganancias, int tutorias_dadas) {
+    public Tutor(String nombre, String lugar_de_nacimiento, String numero_de_cuenta, String carrera, String usuario, String contraseña, int edad, int ganancias, int tutorias_dadas) {
         this.nombre = nombre;
         this.lugar_de_nacimiento = lugar_de_nacimiento;
         this.numero_de_cuenta = numero_de_cuenta;
         this.carrera = carrera;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
         this.edad = edad;
         this.ganancias = ganancias;
         this.tutorias_dadas = tutorias_dadas;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getNombre() {
@@ -74,6 +92,11 @@ public class Tutor extends Alumno{
 
     public void setTutorias_dadas(int tutorias_dadas) {
         this.tutorias_dadas = tutorias_dadas;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
     
 }
